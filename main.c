@@ -48,7 +48,6 @@ int main() {
     #ifdef __APPLE__
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     #endif
-
     GLFWwindow * window = glfwCreateWindow(WIDTH, HEIGHT, "LearnOpenGL", NULL, NULL);
     if (window == NULL) {
         printf("Failed to create GLFW window!\n");
@@ -67,13 +66,20 @@ int main() {
      0.0f, 0.5f, 0.0f, 0.0f, 1.0f, 0.0f,
     0.5f, -0.5f, 0.0f,  0.0f, 0.0f, 1.0f
 	};
+    float texCoords[] = {
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+        0.5f, 1.0f
+    };
 	unsigned int indices[] = {  // note that we start from 0!
 	    0, 1, 2,   // first triangle
 	};
     shader *s;
+
     char *vertexShaderFile = "../shaders/shader.vs";
     char *fragmentShaderFile = "../shaders/shader.fs";
     create_shader(s, vertexShaderFile, fragmentShaderFile);
+
     unsigned int VAO, VBO, EBO;
     glGenVertexArrays(1, & VAO);
     glGenBuffers(1, & VBO);
