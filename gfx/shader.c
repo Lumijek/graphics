@@ -43,10 +43,10 @@ void useShader(shader *s) {
 void setBool(shader *s, char *name, bool value) {         
     glUniform1i(glGetUniformLocation(s->id, name), value); 
 }
-void setInt(shader *s, char *name, bool value) { 
+void setInt(shader *s, char *name, int value) { 
     glUniform1i(glGetUniformLocation(s->id, name), value); 
 }
-void setFloat(shader *s, char *name, bool value) { 
+void setFloat(shader *s, char *name, float value) { 
     glUniform1f(glGetUniformLocation(s->id, name), value); 
 }
 

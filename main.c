@@ -1,5 +1,7 @@
 #define GL_SILENCE_DEPRECATION
+#define STB_IMAGE_IMPLEMENTATION
 
+#include <stb/stb_image.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include <math.h>
@@ -60,16 +62,14 @@ int main() {
     }
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 	glfwSetKeyCallback(window, key_callback);
-
 	float vertices[] = {
-     -0.5f,  -0.5f, 0.0f, 1.0f, 0.0f, 0.0f,  // top right
-     0.0f, 0.5f, 0.0f, 0.0f, 1.0f, 0.0f, // bottom right
-    0.5f, -0.5f, 0.0f,  0.0f, 0.0f, 1.0f// bottom left
+     -0.5f,  -0.5f, 0.0f, 1.0f, 0.0f, 0.0f,
+     0.0f, 0.5f, 0.0f, 0.0f, 1.0f, 0.0f,
+    0.5f, -0.5f, 0.0f,  0.0f, 0.0f, 1.0f
 	};
 	unsigned int indices[] = {  // note that we start from 0!
 	    0, 1, 2,   // first triangle
-	};  
-
+	};
     shader *s;
     char *vertexShaderFile = "../shaders/shader.vs";
     char *fragmentShaderFile = "../shaders/shader.fs";
@@ -78,7 +78,6 @@ int main() {
     glGenVertexArrays(1, & VAO);
     glGenBuffers(1, & VBO);
     glGenBuffers(1, &EBO);
-
     glBindVertexArray(VAO);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);

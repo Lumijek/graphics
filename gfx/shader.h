@@ -18,6 +18,6 @@ void copy_file(char **, const char*);
 void detectGLShaderError();
 void useShader(shader*);
 void setBool(shader *, char *, bool);
-void setInt(shader *, char *, bool);
-void setFloat(shader *, char *, bool);
+void setInt(shader *, char *, int);
+void setFloat(shader *, char *, float);
 #endif
